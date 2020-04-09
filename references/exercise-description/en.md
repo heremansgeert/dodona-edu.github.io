@@ -142,6 +142,23 @@ Both HTML and Markdown tables are supported. You can add the `table` class for p
 </table>
 ```
 
+```markdown
+|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
+| Second body     |            |                 |                |
+| 2 line          |            |                 |                |
+|=================+============+=================+================|
+| Footer row      |            |                 |                |
+|-----------------+------------+-----------------+----------------|
+{:class="table"}
+```
+
+
 ---
 
 ## Math snippets
@@ -267,7 +284,14 @@ To use a callout, create a `div` element with the `callout` class, containing an
 
 You can swap out `callout-info` for `callout-success`, `callout-warning`, or `callout-danger` to use green, yellow, or red instead of blue as highlight color.
 
-There is no specific syntax for Markdown, but since you can use HTML in Markdown, you can use the above.
+It looks like this in Markdown:
+
+```markdown
+{:class="callout callout-info"}
+> #### Hello
+> This is an important info message.
+```
+
 
 ---
 
