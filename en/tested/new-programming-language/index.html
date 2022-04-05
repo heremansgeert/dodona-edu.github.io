@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adding support for a new programming language | Dodona Docs</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <meta name="description" content="Adding support for a new programming language in TESTed.">
+    <meta name="theme-color" content="#1976d2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/assets/css/0.styles.58d1f827.css" as="style"><link rel="preload" href="/assets/js/app.7a1d3ea7.js" as="script"><link rel="preload" href="/assets/js/3.f977c27f.js" as="script"><link rel="preload" href="/assets/js/94.f6ea13e8.js" as="script"><link rel="prefetch" href="/assets/js/10.c7add49a.js"><link rel="prefetch" href="/assets/js/100.255e7d1d.js"><link rel="prefetch" href="/assets/js/101.6ec205e9.js"><link rel="prefetch" href="/assets/js/102.486e755b.js"><link rel="prefetch" href="/assets/js/103.3844f110.js"><link rel="prefetch" href="/assets/js/104.c1b79bc3.js"><link rel="prefetch" href="/assets/js/105.1fcd1064.js"><link rel="prefetch" href="/assets/js/106.89decede.js"><link rel="prefetch" href="/assets/js/107.a2f08fc1.js"><link rel="prefetch" href="/assets/js/108.1ccd3031.js"><link rel="prefetch" href="/assets/js/109.af143d17.js"><link rel="prefetch" href="/assets/js/11.2d75f1f2.js"><link rel="prefetch" href="/assets/js/110.6599d3e8.js"><link rel="prefetch" href="/assets/js/111.e1664c74.js"><link rel="prefetch" href="/assets/js/112.58fd873c.js"><link rel="prefetch" href="/assets/js/113.52090936.js"><link rel="prefetch" href="/assets/js/114.d86230b4.js"><link rel="prefetch" href="/assets/js/115.bed155fc.js"><link rel="prefetch" href="/assets/js/12.98172e3b.js"><link rel="prefetch" href="/assets/js/13.c7c59cc7.js"><link rel="prefetch" href="/assets/js/14.299f067a.js"><link rel="prefetch" href="/assets/js/15.46aaa844.js"><link rel="prefetch" href="/assets/js/16.3a529f62.js"><link rel="prefetch" href="/assets/js/17.5b030868.js"><link rel="prefetch" href="/assets/js/18.058af17a.js"><link rel="prefetch" href="/assets/js/19.561d4c88.js"><link rel="prefetch" href="/assets/js/20.2e862257.js"><link rel="prefetch" href="/assets/js/21.7b913799.js"><link rel="prefetch" href="/assets/js/22.415fdf59.js"><link rel="prefetch" href="/assets/js/23.b08ff723.js"><link rel="prefetch" href="/assets/js/24.ed444c71.js"><link rel="prefetch" href="/assets/js/25.f1adbfe7.js"><link rel="prefetch" href="/assets/js/26.abe0a1d4.js"><link rel="prefetch" href="/assets/js/27.0d5a8d89.js"><link rel="prefetch" href="/assets/js/28.5f9e3891.js"><link rel="prefetch" href="/assets/js/29.6c9bc515.js"><link rel="prefetch" href="/assets/js/30.60615369.js"><link rel="prefetch" href="/assets/js/31.7907209f.js"><link rel="prefetch" href="/assets/js/32.5ba40b32.js"><link rel="prefetch" href="/assets/js/33.c908f756.js"><link rel="prefetch" href="/assets/js/34.2914d3ee.js"><link rel="prefetch" href="/assets/js/35.8ebbe92f.js"><link rel="prefetch" href="/assets/js/36.368c6c03.js"><link rel="prefetch" href="/assets/js/37.2c0b79f7.js"><link rel="prefetch" href="/assets/js/38.19af7029.js"><link rel="prefetch" href="/assets/js/39.6b35ecc3.js"><link rel="prefetch" href="/assets/js/4.bcfdcc32.js"><link rel="prefetch" href="/assets/js/40.d6b65902.js"><link rel="prefetch" href="/assets/js/41.1d96e01a.js"><link rel="prefetch" href="/assets/js/42.5c3d818e.js"><link rel="prefetch" href="/assets/js/43.b8affd5f.js"><link rel="prefetch" href="/assets/js/44.45a7691f.js"><link rel="prefetch" href="/assets/js/45.d21d130b.js"><link rel="prefetch" href="/assets/js/46.33924a93.js"><link rel="prefetch" href="/assets/js/47.98fd5ab4.js"><link rel="prefetch" href="/assets/js/48.6d5d63bc.js"><link rel="prefetch" href="/assets/js/49.6b375cf5.js"><link rel="prefetch" href="/assets/js/5.45e52bde.js"><link rel="prefetch" href="/assets/js/50.f468a614.js"><link rel="prefetch" href="/assets/js/51.565f535c.js"><link rel="prefetch" href="/assets/js/52.8d5cde55.js"><link rel="prefetch" href="/assets/js/53.3e21973f.js"><link rel="prefetch" href="/assets/js/54.ae2c00e4.js"><link rel="prefetch" href="/assets/js/55.b66f6af6.js"><link rel="prefetch" href="/assets/js/56.c9456e8e.js"><link rel="prefetch" href="/assets/js/57.7a3f3b10.js"><link rel="prefetch" href="/assets/js/58.ef34e6ba.js"><link rel="prefetch" href="/assets/js/59.968cb128.js"><link rel="prefetch" href="/assets/js/6.d0beba46.js"><link rel="prefetch" href="/assets/js/60.93d489ea.js"><link rel="prefetch" href="/assets/js/61.4e28f8be.js"><link rel="prefetch" href="/assets/js/62.daf63d12.js"><link rel="prefetch" href="/assets/js/63.33f34ed9.js"><link rel="prefetch" href="/assets/js/64.9f9c8bf0.js"><link rel="prefetch" href="/assets/js/65.15341b04.js"><link rel="prefetch" href="/assets/js/66.02cbbf7c.js"><link rel="prefetch" href="/assets/js/67.c2a2e270.js"><link rel="prefetch" href="/assets/js/68.322d9fdd.js"><link rel="prefetch" href="/assets/js/69.e854e6f6.js"><link rel="prefetch" href="/assets/js/7.2716998d.js"><link rel="prefetch" href="/assets/js/70.613f4a2f.js"><link rel="prefetch" href="/assets/js/71.17e9ae5a.js"><link rel="prefetch" href="/assets/js/72.8679c7f5.js"><link rel="prefetch" href="/assets/js/73.9ce6d529.js"><link rel="prefetch" href="/assets/js/74.865ec79a.js"><link rel="prefetch" href="/assets/js/75.f655f202.js"><link rel="prefetch" href="/assets/js/76.1d5308b1.js"><link rel="prefetch" href="/assets/js/77.153accdc.js"><link rel="prefetch" href="/assets/js/78.0dff2e94.js"><link rel="prefetch" href="/assets/js/79.73930c25.js"><link rel="prefetch" href="/assets/js/8.c5f00537.js"><link rel="prefetch" href="/assets/js/80.e6e7ff7b.js"><link rel="prefetch" href="/assets/js/81.b51ffcb4.js"><link rel="prefetch" href="/assets/js/82.4ceef291.js"><link rel="prefetch" href="/assets/js/83.e9edc792.js"><link rel="prefetch" href="/assets/js/84.3fe23d1a.js"><link rel="prefetch" href="/assets/js/85.87babdf0.js"><link rel="prefetch" href="/assets/js/86.78ae6bbd.js"><link rel="prefetch" href="/assets/js/87.1db5ad48.js"><link rel="prefetch" href="/assets/js/88.11e93abc.js"><link rel="prefetch" href="/assets/js/89.82c55dab.js"><link rel="prefetch" href="/assets/js/9.238f241c.js"><link rel="prefetch" href="/assets/js/90.0a9fd274.js"><link rel="prefetch" href="/assets/js/91.b0b0fe66.js"><link rel="prefetch" href="/assets/js/92.d35eddb4.js"><link rel="prefetch" href="/assets/js/93.35fa67dd.js"><link rel="prefetch" href="/assets/js/95.20a33108.js"><link rel="prefetch" href="/assets/js/96.07524773.js"><link rel="prefetch" href="/assets/js/97.a982cd41.js"><link rel="prefetch" href="/assets/js/98.8bf25495.js"><link rel="prefetch" href="/assets/js/99.ca966640.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.67435802.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.58d1f827.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/en/" class="home-link router-link-active"><!----> <span class="site-name">Dodona Docs</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/en/news/" class="nav-link">
+  News
+</a></div><div class="nav-item"><a href="/en/guides/" class="nav-link">
+  Guides
+</a></div><div class="nav-item"><a href="/en/references/" class="nav-link">
+  References
+</a></div><div class="nav-item"><a href="/en/tested/" class="nav-link router-link-active">
+  TESTed
+</a></div><div class="nav-item"><a href="https://dodona.ugent.be" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Dodona
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">🌐</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">🌐</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nl/tested/new-programming-language/" class="nav-link">
+  Nederlands
+</a></li><li class="dropdown-item"><!----> <a href="/en/tested/new-programming-language/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/en/news/" class="nav-link">
+  News
+</a></div><div class="nav-item"><a href="/en/guides/" class="nav-link">
+  Guides
+</a></div><div class="nav-item"><a href="/en/references/" class="nav-link">
+  References
+</a></div><div class="nav-item"><a href="/en/tested/" class="nav-link router-link-active">
+  TESTed
+</a></div><div class="nav-item"><a href="https://dodona.ugent.be" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Dodona
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">🌐</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">🌐</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nl/tested/new-programming-language/" class="nav-link">
+  Nederlands
+</a></li><li class="dropdown-item"><!----> <a href="/en/tested/new-programming-language/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/en/news/" class="sidebar-link">News</a></li><li><a href="/en/guides/" class="sidebar-link">Guides</a></li><li><a href="/en/references/" class="sidebar-link">References</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>TESTed judge</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/en/tested/" aria-current="page" class="sidebar-link">Overview</a></li><li><a href="/en/tested/json/" class="sidebar-link">Test suite format</a></li><li><a href="/en/tested/types/" class="sidebar-link">Data type support</a></li><li><a href="/en/tested/exercise-config/" class="sidebar-link">Configuration options for exercises</a></li><li><a href="/en/tested/new-programming-language/" aria-current="page" class="active sidebar-link">Adding support for a new programming language</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#tested-locally" class="sidebar-link">TESTed locally</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#plan-of-action" class="sidebar-link">Plan of action</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#the-programming-language-c" class="sidebar-link">The programming language C</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#configuration-file" class="sidebar-link">Configuration file</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#user-facing-type-configuration" class="sidebar-link">User-facing type configuration</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#configuration-class" class="sidebar-link">Configuration class</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#templates" class="sidebar-link">Templates</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#register-the-language" class="sidebar-link">Register the language</a></li><li class="sidebar-sub-header"><a href="/en/tested/new-programming-language/#testing-the-language-implementation" class="sidebar-link">Testing the language implementation</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="adding-support-for-a-new-programming-language-to-tested"><a href="#adding-support-for-a-new-programming-language-to-tested" class="header-anchor">#</a> Adding support for a new programming language to TESTed</h1> <p>In this guide, we explain in detail how to add support for a new programming language to TESTed.
+In this guide, we add support for the programming language C.
+We do also note where we do C-specific stuff,
+so it should also be usable as a guide for adding support for other languages.</p> <p>Some useful links that can help you:</p> <ul><li>Existing configurations: <a href="https://github.com/dodona-edu/universal-judge/tree/master/tested/languages" target="_blank" rel="noopener noreferrer">https://github.com/dodona-edu/universal-judge/tree/master/tested/languages<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, including the configuration for C, which is what we are adding here.</li> <li>Test exercises: <a href="https://github.com/dodona-edu/universal-judge/tree/master/exercise" target="_blank" rel="noopener noreferrer">https://github.com/dodona-edu/universal-judge/tree/master/exercise<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="tested-locally"><a href="#tested-locally" class="header-anchor">#</a> TESTed locally</h2> <p>Since language support is added to TESTed itself, you need to get the code for TESTed locally.
+We recommend following the guide in the <a href="https://github.com/dodona-edu/universal-judge#installing-tested" target="_blank" rel="noopener noreferrer">readme of the TESTed repository<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.
+Note that you only need to install the Python dependencies.
+Dependencies of other languages (e.g. ghc for Haskell) are optional.</p> <p>For this guide, you also need to have an installation of gcc available,
+since that is the compiler we're going to use (version 8.1 or up).</p> <div class="custom-block tip"><p class="custom-block-title">Window users</p> <p>We recommend using the <a href="https://ubuntu.com/wsl" target="_blank" rel="noopener noreferrer">Windows Subsystem for Linux<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> on Linux.
+While TESTed itself is written in Python and thus platform independent,
+the dependencies of the programming languages are not always available on Windows.</p></div> <h3 id="running-tested"><a href="#running-tested" class="header-anchor">#</a> Running TESTed</h3> <p>After cloning the repository and installing the necessary dependencies,
+the folder in which TESTed is located should look like this:</p> <div class="language- extra-class"><pre class="language-text"><code>universal-judge
+├── exercise/     # Test exercises
+├── tested/       # Sources
+├── tests/        # Tests
+├── workdir/      # Working directory when manually running TESTed
+├── config.json   # Used in Dodona
+└── run           # Used in Dodona
+</code></pre></div><p>In this guide, we assume you run the commands in the root directory of the repository.
+The main way to run TESTed is to use the following command:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&gt;</span> python -m tested --help
+usage: __main__.py <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>-c CONFIG<span class="token punctuation">]</span> <span class="token punctuation">[</span>-o OUTPUT<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v<span class="token punctuation">]</span>
+The programming language agnostic educational <span class="token builtin class-name">test</span> framework.
+optional arguments:
+  -h, --help            show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span>
+  -c CONFIG, --config CONFIG
+                        Where to <span class="token builtin class-name">read</span> the config from
+  -o OUTPUT, --output OUTPUT
+                        Where the judge output should be written to.
+  -v, --verbose         Include verbose logs. It is recommended to also use -o <span class="token keyword">in</span> this case.
+</code></pre></div><p>This is fine when running TESTed in production,
+but for development it is annoying to always have to specify the configuration.
+Therefore, you can use the development mode, in which the configuration is hard-coded:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&gt;</span> python -m tested.manual
+</code></pre></div><p>This will run an exercise according to the hard-coded values in <code>tested/manual.py</code>.
+Running in this mode will put all generated files into the <code>workdir</code> folder.
+This can be very useful, e.g. to inspect the generated code.
+If <code>workdir</code> does not exist, you might need to create it.</p> <h2 id="plan-of-action"><a href="#plan-of-action" class="header-anchor">#</a> Plan of action</h2> <p>Adding support for a programming language in TESTed boils down to implementing a programming language module for that programming language.
+Implementing such a module is theoretically as easy as creating one subclass,
+but we recommend the following structure:</p> <ol><li>The configuration file,
+which contains some options for the programming language.
+This also includes the type configuration, which specifies the data type support.</li> <li>The configuration class, which has more dynamic options, like the compilation command that should be used when evaluating a submission.</li> <li>The templates, which are used to generate the necessary test code.</li></ol> <p>TESTed includes a utility to generate the necessary files in the correct location.
+Based on a few questions, stubs will be generated for the configuration file, the configuration class and the templates.</p> <p>You can run the utility as follows:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&gt;</span> python -m tested.generation
+</code></pre></div><p>Note that this will only generate the necessary files.
+It will not modify existing files,
+so you must not forget to do the steps in the <a href="#register-the-language">Registration</a> section later.</p> <p>We will now look at the various features of the programming language C.
+We will assume the generation tool was not used, so the files need to be created manually.
+If you did use the generation tool, skip the instructions on creating files.</p> <h2 id="the-programming-language-c"><a href="#the-programming-language-c" class="header-anchor">#</a> The programming language C</h2> <p>Before starting with adding support for C,
+we will look briefly at which features of C we want to support:
+which features of the language can we support in TESTed and which features from TESTed can we support in C?</p> <p>Of course, we want to support as much as possible.
+However, there are some limitations, specifically in the data type support.</p> <h5 id="unsupported-basic-types"><a href="#unsupported-basic-types" class="header-anchor">#</a> Unsupported basic types</h5> <p>In our support for C, we won't support the following basic types:</p> <ul><li><code>sequence</code>:
+Arrays are a special case in C.
+For example, static arrays cannot be used as a return value,
+and are not ideal as function parameter either.
+To use dynamic arrays effectively, you need a pointer to the data and the size of the array.
+This has implications:
+for example, if you want to pass an array as a parameter to a function, you need to pass two parameters.
+TESTed has no support for this at the moment.
+As such, arrays are not supported.</li> <li><code>set</code>:
+C does not have any built-in sets.</li> <li><code>map</code>:
+C does not have any built-in maps.
+There are structs, but it is not possible to get the field names at runtime, so there is no way to serialize them.</li></ul> <h5 id="unsupported-advanced-types"><a href="#unsupported-advanced-types" class="header-anchor">#</a> Unsupported advanced types</h5> <p>Of the basic types that we do support, we cannot support the following advanced types:</p> <ul><li><code>big_int</code>:
+C does not have a type for arbitrary size numbers.</li> <li><code>fixed_precision</code>:
+C does not have a type for fixed precision floats.</li> <li><strong>Other data types</strong>:
+This concerns types such as <code>array</code> and <code>list</code>.
+Similarly, <code>tuple</code> is also not supported.</li></ul> <p>The first step is to create a folder in which we will put the code of the C module.
+This folder should be named after the programming language
+and created in the correct location within the source directory.
+Create a new folder <code>tested/languages/c</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>universal-judge/
+├─ tested/
+│ ├─ languages/
+│ │ ├── c/        &lt;- new folder
+│ │ ├── haskell/
+│ │ ├── java/
+│ │ ├── python/
+│ │ ├── config.py
+│ │ ...
+│ ...
+...
+</code></pre></div><h2 id="configuration-file"><a href="#configuration-file" class="header-anchor">#</a> Configuration file</h2> <p>The configuration file is a JSON file with some properties of the programming language.
+Technically, this file is optional: you only need to implement the configuration class (which we'll do later).
+However, using the configuration file is easier.
+Create the configuration file <code>tested/languages/c/config.json</code>:</p> <div class="language-json5 extra-class"><pre class="language-json5"><code><span class="token punctuation">{</span>
+  <span class="token comment">// General options about the language.</span>
+  <span class="token property">&quot;general&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Files which will be available in the compilation and execution step.</span>
+    <span class="token comment">// We'll discuss these later, but these are dependencies that are needed</span>
+    <span class="token comment">// during the compilation step in C.</span>
+    <span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;values.h&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;values.c&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;evaluation_result.h&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;evaluation_result.c&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// If the language uses a selector during compilation.</span>
+    <span class="token comment">// This is true for most languages, including C.  </span>
+    <span class="token property">&quot;selector&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;extensions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Extension of the generated test code.  </span>
+    <span class="token property">&quot;file&quot;</span><span class="token operator">:</span> <span class="token string">&quot;c&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// Extensions of the templates.</span>
+    <span class="token comment">// Defaults to the file extension and mako.</span>
+    <span class="token property">&quot;templates&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;c&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;mako&quot;</span><span class="token punctuation">]</span>  <span class="token comment">// The default value, so not really necessary.</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Language constructs are translated into the style of the programming language</span>
+  <span class="token property">&quot;naming_conventions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Possibilities are snake_case, camelCase and PascalCase</span>
+    <span class="token property">&quot;namespace&quot;</span><span class="token operator">:</span> <span class="token string">&quot;snake_case&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// snake_case is the default</span>
+    <span class="token property">&quot;function&quot;</span><span class="token operator">:</span> <span class="token string">&quot;snake_case&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Indicate for which language constructs recognized by TESTed</span>
+  <span class="token comment">// we want to add support.</span>
+  <span class="token comment">// By default, all constructs are false, meaning no support.</span>
+  <span class="token property">&quot;constructs&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Object-oriented stuff, such as classes and constructors.</span>
+    <span class="token property">&quot;objects&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// Throwable exceptions.</span>
+    <span class="token property">&quot;exceptions&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// Functions</span>
+    <span class="token property">&quot;function_calls&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// Assignments (often a variable)</span>
+    <span class="token comment">// However, e.g. in Haskell this is implemented as a constant function</span>
+    <span class="token comment">// returning the same value. So, it is a &quot;conceptual&quot; assignment, not</span>
+    <span class="token comment">// necessarily a real one.</span>
+    <span class="token comment">// For example, `x = 5` is technically a function in Haskell, but is</span>
+    <span class="token comment">// considered an assignment in TESTed.</span>
+    <span class="token property">&quot;assignments&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// If collections (e.g. lists) can have elements of different types.</span>
+    <span class="token comment">// For example, there is support in Python; it is difficult </span>
+    <span class="token comment">// in Java and Haskell does not support it at all.</span>
+    <span class="token property">&quot;heterogeneous_collections&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// If a function can accept arguments of different types.</span>
+    <span class="token comment">// For example, Java supports this with method overloading.</span>
+    <span class="token comment">// On the other hand, C does not support this.</span>
+    <span class="token comment">// An example is `echo(&quot;string&quot;)` and `echo(5)`.</span>
+    <span class="token property">&quot;heterogeneous_arguments&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// If programmed checks are supported in this language.</span>
+    <span class="token comment">// Technically, not a language construct.</span>
+    <span class="token property">&quot;evaluation&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// If named function arguments are supported.</span>
+    <span class="token comment">// This implies the arguments can be passed in a different order.</span>
+    <span class="token comment">// For example, Python supports this.</span>
+    <span class="token property">&quot;named_arguments&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// If default values for function arguments are supported.</span>
+    <span class="token property">&quot;default_parameters&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Indicate which datatypes are supported in this language.</span>
+  <span class="token comment">// By default, all basic types are supported, but advanced types are not.</span>
+  <span class="token comment">// There are three possible values:</span>
+  <span class="token comment">// - supported: full support</span>
+  <span class="token comment">// - unsupported: no support</span>
+  <span class="token comment">// - reduced: only for advanced types. This indicates that the type will</span>
+  <span class="token comment">//   be reduced to its basic type. E.g. a list will become a sequence.</span>
+  <span class="token property">&quot;datatypes&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// BASIC TYPES</span>
+    <span class="token property">&quot;integer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rational&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;char&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;boolean&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sequence&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// ADVANCED TYPES</span>
+    <span class="token property">&quot;set&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;map&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;nothing&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;int8&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;uint8&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;int16&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;uint16&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;int32&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;uint32&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;int64&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;uint64&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;bigint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;reduced&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;single_precision&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;double_precision&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;double_extended&quot;</span><span class="token operator">:</span> <span class="token string">&quot;supported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fixed_precision&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;array&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;list&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;tuple&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unsupported&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Indicate limits on data structures.</span>
+  <span class="token comment">// For example, some languages have limits on the possible types for keys</span>
+  <span class="token comment">// in map-like data structures.</span>
+  <span class="token comment">// For example, maps are implemented using Objects in JavaScript, which means</span>
+  <span class="token comment">// that not all types are usable as keys.</span>
+  <span class="token comment">// This is an advanced configuration. We recommend leaving it until later.</span>
+  <span class="token comment">// For C, the list is empty, since C does not support either data structure.</span>
+  <span class="token property">&quot;restrictions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;map_key&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;set&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="user-facing-type-configuration"><a href="#user-facing-type-configuration" class="header-anchor">#</a> User-facing type configuration</h2> <div class="custom-block warning"><p class="custom-block-title">Experimental</p> <p>This file is currently experimental, and thus optional.</p></div> <p>When generating problem statements,
+TESTed needs to know how certain data types should be shown to the user.
+For this purpose, you can provide a type configuration file.
+Create the configuration file <code>tested/languages/c/types.json</code>.
+See the existing files for examples.
+Note that this is experimental, so changes are possible.</p> <h2 id="configuration-class"><a href="#configuration-class" class="header-anchor">#</a> Configuration class</h2> <p>The configuration class is the only mandatory part of adding language support.
+It serves as the API between TESTed and the language module.
+Because TESTed is written in Python, the class needs to be Python as well.</p> <p>Create a file <code>tested/languages/c/config.py</code> and add a class the inherits from <code>Language</code>:</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>Language<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># See the docs of the parent class for all available options.</span>
+  <span class="token comment"># Most of the default implementations fall back to using the JSON</span>
+  <span class="token comment"># configuration file, but you could also override them all and not</span>
+  <span class="token comment"># use the configuration file.</span>
+  <span class="token comment"># The compilation command used by TESTed.</span>
+  <span class="token comment"># See below for more information, or check the method documentation</span>
+  <span class="token comment"># for technical details.</span>
+  <span class="token keyword">def</span> <span class="token function">compilation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Config<span class="token punctuation">,</span> files<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> CallbackResult<span class="token punctuation">:</span>
+    main_file <span class="token operator">=</span> files<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    exec_file <span class="token operator">=</span> Path<span class="token punctuation">(</span>main_file<span class="token punctuation">)</span><span class="token punctuation">.</span>stem
+    result <span class="token operator">=</span> executable_name<span class="token punctuation">(</span>exec_file<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;gcc&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-std=c11&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-Wall&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;evaluation_result.c&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;values.c&quot;</span><span class="token punctuation">,</span>
+             main_file<span class="token punctuation">,</span> <span class="token string">&quot;-o&quot;</span><span class="token punctuation">,</span> result<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>result<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token comment"># Execution command used by TESTed.</span>
+  <span class="token comment"># This will execute the result of the compilation command.</span>
+  <span class="token comment"># See below for more information, or check the method documentation</span>
+  <span class="token comment"># for technical details.</span>
+  <span class="token keyword">def</span> <span class="token function">execution</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">:</span> Config<span class="token punctuation">,</span>
+                cwd<span class="token punctuation">:</span> Path<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> arguments<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Command<span class="token punctuation">:</span>
+    local_file <span class="token operator">=</span> cwd <span class="token operator">/</span> executable_name<span class="token punctuation">(</span>Path<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">.</span>stem<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>local_file<span class="token punctuation">.</span>absolute<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">*</span>arguments<span class="token punctuation">]</span>
+  <span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> solution<span class="token punctuation">:</span> Path<span class="token punctuation">,</span> bundle<span class="token punctuation">:</span> Bundle<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Contains some code to change the main function.</span>
+    <span class="token comment"># See the actual implementation for the details.</span>
+    <span class="token keyword">pass</span>
+</code></pre></div><h3 id="compilation-step"><a href="#compilation-step" class="header-anchor">#</a> Compilation step</h3> <div class="custom-block tip"><p class="custom-block-title">Interpreted languages</p> <p>Whenever possible, we recommend adding a compilation step, even if the language is not compiled.
+For example, in Python and JavaScript the compilation step is used to check the syntax of the submission.
+However, if the language does not support it (e.g. Bash),
+you can skip this implementation; the default implementation does nothing.</p></div> <p>The first parameter in the <code>compilation</code> method is a class with some configuration options.
+These options include all exercise options.
+For example, you could enable the exercise author to choose the C version used by TESTed (e.g. C99 instead of C11).
+However, in this case, we only support C11.</p> <p>The second parameter is a list of files TESTed considers to be useful to have during compilation.
+It will contain the dependencies specified by the configuration file, the submission and the generated test code files.
+By convention, the last file in the list is the one with the main function, and should thus be the one being compiled.</p> <p>All of these files will be in the same directory as the main file.
+It's not mandatory to actually use the files, e.g. for C,
+GCC will take care of loading all other files, so we only use the main file.
+As we do, you can also hardcode the name of files defined as a dependency in the configuration file.</p> <p>The method must be a tuple with two elements: the compilation command and the resulting file or file filter.</p> <p>The compilation command will be executed by TESTed with the <code>subprocess</code> Python module.</p> <p>The resulting file or file filter is used to copy the compiled binary to the execution directory.
+Only this file will be available during execution.
+You can return a list of files if the result of compilation is a file with a predicable name.
+For example, in C we always know the name of the binary, so we just return that.
+When returning a list, you should also place the &quot;main&quot; file at the end.</p> <p>However, this is not always the case.
+For example, compiling a <code>.java</code> file will result in one or more <code>.class</code> files,
+depending on the content of the <code>.java</code> file.
+Therefore, you can return a filter function, which determines which files are kept.
+TESTed will call the filter function for each file in the compilation directory after compiling.</p> <p>An example of calling this method with the parameters and return values for C:</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> compilation<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'submission.c'</span><span class="token punctuation">,</span> <span class="token string">'evaluation_result.c'</span><span class="token punctuation">,</span> <span class="token string">'context_0_0.c'</span><span class="token punctuation">,</span> <span class="token string">'selector.c'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>
+    <span class="token punctuation">[</span><span class="token string">'gcc'</span><span class="token punctuation">,</span> <span class="token string">'-std=c11'</span><span class="token punctuation">,</span> <span class="token string">'-Wall'</span><span class="token punctuation">,</span> <span class="token string">'evaluation_result.c'</span><span class="token punctuation">,</span> <span class="token string">'values.c'</span><span class="token punctuation">,</span> <span class="token string">'selector.c'</span><span class="token punctuation">,</span>
+     <span class="token string">'-o'</span><span class="token punctuation">,</span> <span class="token string">'selector.exe'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'selector.exe'</span><span class="token punctuation">]</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>Return an empty compilation command to skip compilation.</p> <h3 id="execution"><a href="#execution" class="header-anchor">#</a> Execution</h3> <p>After compiling the submission and test code, the test code must be executed to get the results of the evaluation.
+This method has four parameters:</p> <ul><li><code>config</code>:
+Same as for the compilation method.
+For example, the Java implementation uses this to set the maximum JVM memory.</li> <li><code>cwd</code>:
+the directory in which the execution is taking place</li> <li><code>file</code>:
+the executable file that must be executed</li> <li><code>arguments</code>:
+arguments that should be passed to the process.
+This is used, for example, to select which context should be executed.</li></ul> <p>The return value is again a command that will be passed to the <code>subprocess</code> module.</p> <p>In the case of C, this is simple: we execute the executable file and pass the arguments to it.</p> <p>An example is:</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> execution<span class="token punctuation">(</span><span class="token string">'/test/path'</span><span class="token punctuation">,</span> <span class="token string">'executable.exe'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'arg1'</span><span class="token punctuation">,</span> <span class="token string">'arg2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token string">'/test/path/executable.exe'</span><span class="token punctuation">,</span> <span class="token string">'arg1'</span><span class="token punctuation">,</span> <span class="token string">'arg2'</span><span class="token punctuation">]</span>
+</code></pre></div><p>In most languages, we are done by now with the configuration.
+However, a C program can only have one main function.
+Since the submission can have a main function, and the generated test code also has a main function, there is a conflict.
+As such, we use the <code>submission</code> method to modify the submission by renaming the main function.</p> <h2 id="templates"><a href="#templates" class="header-anchor">#</a> Templates</h2> <p>Finally, we need to implement a set of templates that will be used by TESTed to generate the test code
+(and translate the test suite into the programming language of the submission).</p> <p>Some templates are mandatory (as they are used by the configuration class),
+but it is often useful to create a few more templates, to enable reuse.
+For C, we create the following templates:</p> <ul><li><code>run.c</code>: template for a run, used to execute multiple contexts (<strong>mandatory</strong>)</li> <li><code>selector.c</code>: template to select which context to run when using batch compilation (<strong>mandatory</strong> if batch compilation is supported)</li> <li><code>declaration.mako</code>: translates a variable declaration to C</li> <li><code>function.mako</code>: translates a function call to C</li> <li><code>statement.mako</code>: translates a TESTed statement (thus also expressions) to C (<strong>mandatory</strong>)</li> <li><code>value.mako</code>: translates a literal to C (we also have a two helper templates: <code>value_arguments.mako</code>, <code>value_basic.mako</code>)</li></ul> <p>All templates are located in <code>tested/languages/c/templates</code>.</p> <h3 id="run-template"><a href="#run-template" class="header-anchor">#</a> Run template</h3> <p>This is conceptually the most complex template.
+It is responsible for generating the test code for one run.</p> <div class="custom-block tip"><p class="custom-block-title">Runs in TESTed</p> <p>Normally, TESTed will execute every context separately.
+However, this means starting a new process for each context, which can introduce a lot of overhead.
+As such, TESTed will combine contexts into one run, which is then run in a single process.</p></div> <div class="custom-block tip"><p class="custom-block-title">Mako white space</p> <p>TESTed uses the templating system Mako for these templates.
+The default configuration in TESTed will strip Mako-induced white space.
+For example, the <code>for</code>-loop above will not be intended in the final file.</p> <p>Newlines in the template will result in newlines in the final file.
+This can be prevented by using a backslash:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">int</span> test <span class="token operator">=</span> \⏎
+<span class="token string">&quot;test&quot;</span><span class="token punctuation">;</span>⏎
+</code></pre></div><p>Will result in:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">int</span> test <span class="token operator">=</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">;</span>⏎
+</code></pre></div></div> <p>In C, the annotated implementation is:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token comment">// Include the values module, reponsible for serialisation.</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;values.h&quot;</span></span>
+<span class="token comment">// Include the submission code.</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;${submission_name}.c&quot;</span></span>
+<span class="token comment">// Import all programming language-specific checks.</span>
+<span class="token operator">%</span> <span class="token keyword">for</span> name in evaluator_names<span class="token operator">:</span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;${name}.c&quot;</span></span>
+<span class="token operator">%</span> endfor
+<span class="token comment">// Create the variables which will contain the names of the files used to</span>
+<span class="token comment">// save the return values and the exceptions.</span>
+<span class="token comment">// C doesn't support exceptions, but TESTed still requires the file to be present.</span>
+<span class="token comment">// We also define two functions to write a seperator to the file.</span>
+<span class="token comment">// These will be used between each context and each test case,</span>
+<span class="token comment">// allowing TESTed to seperate the results in the output files.</span>
+<span class="token keyword">static</span> FILE<span class="token operator">*</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span> FILE<span class="token operator">*</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_exception_file <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token function">_write_separator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file<span class="token punctuation">,</span> <span class="token string">&quot;--${secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_exception_file<span class="token punctuation">,</span> <span class="token string">&quot;--${secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">,</span> <span class="token string">&quot;--${secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;--${secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token function">_write_context_separator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file<span class="token punctuation">,</span> <span class="token string">&quot;--${context_secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_exception_file<span class="token punctuation">,</span> <span class="token string">&quot;--${context_secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">,</span> <span class="token string">&quot;--${context_secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;--${context_secret_id}-- SEP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> continued after the text block
+</code></pre></div><p>If a return value is produced, it must be serialized before it is written to the output file.
+This serialization converts the programming-language-specific value into the language-independent format used by TESTed.
+It is useful to implement this as a separate module, which is called &quot;values&quot; by convention.</p> <p>TESTed will expect the following functions to be available:</p> <ul><li><code>send_value(value)</code> serialise and write a value to the return output file.</li> <li><code>send_exception(exception)</code> serialise and write an exception to the exception file.</li> <li><code>send_specific_value(value)</code> serialise and write the result of a programming-language-specific check for the return channel.</li> <li><code>send_specific_exception(exception)</code> serialise and write the result of a programming-language-specific check for the exception channel.</li></ul> <p>However, since C does not support exceptions, we don't implement those.
+The other functions are implemented using a macro:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> continued from before the text block
+<span class="token comment">// Uses the function from the values module.</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span> <span class="token expression">send_value</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">send_value</span><span class="token expression"><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token function">write_value</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file<span class="token punctuation">,</span> value<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span> <span class="token expression">send_specific_value</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">send_specific_value</span><span class="token expression"><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token function">write_evaluated</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file<span class="token punctuation">,</span> value<span class="token punctuation">)</span></span></span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> continued after the text block
+</code></pre></div><p>Finally, we execute the contexts.
+We generate a function per context:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> continued from before the text block
+<span class="token comment">// Generate a function for each context in this run:</span>
+<span class="token operator">%</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> ctx in <span class="token function">enumerate</span><span class="token punctuation">(</span>contexts<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token keyword">void</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_context_$<span class="token punctuation">{</span>i<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Optional code fragment before executing a context.</span>
+        $<span class="token punctuation">{</span>ctx<span class="token punctuation">.</span>before<span class="token punctuation">}</span>
+        <span class="token comment">// Execute each test case.</span>
+        <span class="token operator">%</span> <span class="token keyword">for</span> testcase in ctx<span class="token punctuation">.</span>testcases<span class="token operator">:</span>
+            <span class="token comment">// Write the separator to the output files.</span>
+            $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token function">_write_separator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// Use another template to generate the statement that must be executed.</span>
+            <span class="token operator">&lt;</span><span class="token operator">%</span>include file<span class="token operator">=</span><span class="token string">&quot;statement.mako&quot;</span> args<span class="token operator">=</span><span class="token string">&quot;statement=testcase.input_statement()&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+        <span class="token operator">%</span> endfor
+        <span class="token comment">// Optional code fragment after executing a context.</span>
+        $<span class="token punctuation">{</span>ctx<span class="token punctuation">.</span>after<span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token operator">%</span> endfor
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> continued after the text block
+</code></pre></div><p>Now, we must still generate the code that will call these context functions:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token comment">// Generate a function that will execute the run.</span>
+<span class="token keyword">int</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Create the output files.</span>
+    $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">&quot;${value_file}&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;w&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_exception_file <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">&quot;${exception_file}&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;w&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Similary to the separator for test cases, we write the context</span>
+    <span class="token comment">// seperator between each execution of a context.</span>
+    $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token function">_write_context_separator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// This is a special test case: it is used when you want to test</span>
+    <span class="token comment">// the main function of the submission.</span>
+    <span class="token operator">%</span> <span class="token keyword">if</span> run_testcase<span class="token punctuation">.</span>exists<span class="token operator">:</span>
+        <span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>\
+        <span class="token operator">%</span> <span class="token keyword">for</span> argument in <span class="token punctuation">[</span><span class="token string">&quot;solution&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> run_testcase<span class="token punctuation">.</span>arguments<span class="token operator">:</span>
+            <span class="token string">&quot;${argument}&quot;</span><span class="token punctuation">,</span> \
+        <span class="token operator">%</span> endfor
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> exit_code <span class="token operator">=</span> <span class="token function">solution_main</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span><span class="token function">len</span><span class="token punctuation">(</span>run_testcase<span class="token punctuation">.</span>arguments<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>exit_code <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> exit_code<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">%</span> endif
+    <span class="token comment">// Execute all contexts from the test suite.</span>
+    <span class="token operator">%</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> ctx in <span class="token function">enumerate</span><span class="token punctuation">(</span>contexts<span class="token punctuation">)</span><span class="token operator">:</span>
+        <span class="token comment">// Don't forget the separator.</span>
+        $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token function">_write_context_separator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Call the function we generated previously.</span>
+        $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_context_$<span class="token punctuation">{</span>i<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">%</span> endfor
+    <span class="token comment">// We are done, so close the result files.</span>
+    <span class="token function">fclose</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_value_file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fclose</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span>_exception_file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// TESTed also supportes batch compilation, in which case</span>
+<span class="token comment">// we don't need a main function. Otherwise we do.</span>
+<span class="token comment">// In batch compilation the main is not needed, since this</span>
+<span class="token comment">// module will be called from the selector module.</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">INCLUDED</span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> $<span class="token punctuation">{</span>execution_name<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</code></pre></div><h3 id="selector-template"><a href="#selector-template" class="header-anchor">#</a> Selector template</h3> <p>In batch compilation, TESTed will use a selector template to choose which context is executed.
+We set <code>INCLUDED</code> to <code>true</code>, since this will allow us to include the run file from before:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">INCLUDED</span> <span class="token expression">true</span></span>
+<span class="token operator">%</span> <span class="token keyword">for</span> cont in contexts<span class="token operator">:</span>
+    <span class="token comment">// Include individual context files.</span>
+    <span class="token comment">// This is the same code as in the file before.</span>
+    <span class="token comment">// We will probably merge these in the future.</span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;${cont}.c&quot;</span></span>
+<span class="token operator">%</span> endfor
+<span class="token comment">// Main function.</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;No run context selected.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Code to execute the correct context.</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> name <span class="token operator">=</span> argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">%</span> <span class="token keyword">for</span> cont in contexts<span class="token operator">:</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strcmp</span><span class="token punctuation">(</span><span class="token string">&quot;${cont}&quot;</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> $<span class="token punctuation">{</span>cont<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">%</span> endfor
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;Non-existing run context '%s' selected.&quot;</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="statement-template"><a href="#statement-template" class="header-anchor">#</a> Statement template</h3> <p>Used to convert a TESTed statement to the programming language of the submission.
+In this case, we generate C code:</p> <div class="language-c extra-class"><pre class="language-c"><code>## Convert a statement and<span class="token operator">/</span>or expression into Java code<span class="token punctuation">.</span>
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span> from tested<span class="token punctuation">.</span>utils import get_args <span class="token operator">%</span><span class="token operator">&gt;</span>\
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span> from tested<span class="token punctuation">.</span>serialisation import Value<span class="token punctuation">,</span> Identifier<span class="token punctuation">,</span> FunctionCall<span class="token punctuation">,</span> Assignment <span class="token operator">%</span><span class="token operator">&gt;</span>\
+<span class="token operator">&lt;</span><span class="token operator">%</span>page args<span class="token operator">=</span><span class="token string">&quot;statement,full=False&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>\
+<span class="token operator">%</span> <span class="token keyword">if</span> <span class="token function">isinstance</span><span class="token punctuation">(</span>statement<span class="token punctuation">,</span> Identifier<span class="token punctuation">)</span><span class="token operator">:</span>
+    ## If the expression is an identifier<span class="token punctuation">,</span> just echo it<span class="token punctuation">.</span>
+    $<span class="token punctuation">{</span>statement<span class="token punctuation">}</span>\
+<span class="token operator">%</span> elif <span class="token function">isinstance</span><span class="token punctuation">(</span>statement<span class="token punctuation">,</span> FunctionCall<span class="token punctuation">)</span><span class="token operator">:</span>
+    ## Delegate to the function template <span class="token keyword">for</span> function calls<span class="token punctuation">.</span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span>include file<span class="token operator">=</span><span class="token string">&quot;function.mako&quot;</span> args<span class="token operator">=</span><span class="token string">&quot;function=statement&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>\
+<span class="token operator">%</span> elif <span class="token function">isinstance</span><span class="token punctuation">(</span>statement<span class="token punctuation">,</span> <span class="token function">get_args</span><span class="token punctuation">(</span>Value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span>
+    ## We have a value<span class="token punctuation">,</span> delegate to the value template<span class="token punctuation">.</span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span>include file<span class="token operator">=</span><span class="token string">&quot;value.mako&quot;</span><span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token string">&quot;value=statement&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>\
+<span class="token operator">%</span> <span class="token keyword">else</span><span class="token operator">:</span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> assert <span class="token function">isinstance</span><span class="token punctuation">(</span>statement<span class="token punctuation">,</span> <span class="token function">get_args</span><span class="token punctuation">(</span>Assignment<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">&gt;</span>\
+    <span class="token operator">%</span> <span class="token keyword">if</span> full<span class="token operator">:</span>
+        <span class="token operator">&lt;</span><span class="token operator">%</span>include file<span class="token operator">=</span><span class="token string">&quot;declaration.mako&quot;</span> args<span class="token operator">=</span><span class="token string">&quot;tp=statement.type, value=statement.expression&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span> \
+    <span class="token operator">%</span> endif
+    $<span class="token punctuation">{</span>statement<span class="token punctuation">.</span>variable<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token operator">&lt;</span><span class="token operator">%</span>include file<span class="token operator">=</span><span class="token string">&quot;statement.mako&quot;</span> args<span class="token operator">=</span><span class="token string">&quot;statement=statement.expression&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>\
+<span class="token operator">%</span> endif
+</code></pre></div><p>One non-intuitive aspect is the <code>full</code> parameter.
+It indicates if a variable declaration is needed or not:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">int</span> variabele <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// with declaration</span>
+variabele <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment">// without declaration</span>
+</code></pre></div><p>See the actual templates for examples of how to handle most constructs.</p> <h2 id="register-the-language"><a href="#register-the-language" class="header-anchor">#</a> Register the language</h2> <p>We must also register the language module in TESTed.
+You must always do this, even if you used the generator to generate the stubs.</p> <p>In the file <code>tested/languages/__init__.py</code>, modify <code>LANGUAGES</code>:</p> <div class="language-python extra-class"><pre class="language-python"><code>LANGUAGES <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'c'</span><span class="token punctuation">:</span> C<span class="token punctuation">,</span>   <span class="token comment"># This is what we added here, mapping a name to the configuration class.</span>
+  <span class="token string">'haskell'</span><span class="token punctuation">:</span> Haskell<span class="token punctuation">,</span>
+  <span class="token string">'java'</span><span class="token punctuation">:</span> Java<span class="token punctuation">,</span>
+  <span class="token string">'javascript'</span><span class="token punctuation">:</span> JavaScript<span class="token punctuation">,</span>
+  <span class="token string">'kotlin'</span><span class="token punctuation">:</span> Kotlin<span class="token punctuation">,</span>
+  <span class="token string">'python'</span><span class="token punctuation">:</span> Python<span class="token punctuation">,</span>
+  <span class="token string">'runhaskell'</span><span class="token punctuation">:</span> RunHaskell<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="testing-the-language-implementation"><a href="#testing-the-language-implementation" class="header-anchor">#</a> Testing the language implementation</h2> <p>To test the language implementation, there is a set of tests.
+You should also add support for your new programming language:</p> <ol><li>Add solutions in your programming language to one or more of the test exercises (in the folder <code>exercise</code>).
+See the existing solutions for what your solution should do.</li> <li>Modify <code>tests/test_functionality.py</code> and other test files to also test the new programming language.</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.7a1d3ea7.js" defer></script><script src="/assets/js/3.f977c27f.js" defer></script><script src="/assets/js/94.f6ea13e8.js" defer></script>
+  </body>
+</html>
