@@ -13,7 +13,6 @@ TESTed kan als afzonderlijk tool gebruikt worden, maar is ook geïntegreerd in d
 ## Wanneer gebruik je TESTed?
 
 In de eerste plaats moet TESTed de programmeertaal die u wilt gebruiken ondersteunen.
-Moment
 Momenteel zijn dat volgende programmeertalen:
 
 * Bash
